@@ -1,4 +1,4 @@
-# Musician (Frontend)
+# musician (Frontend)
 React with typescript as frontend. MERN stack microservice project for music streaming application (e.g. Spotify).
 
 ## Services
@@ -15,10 +15,11 @@ React with typescript as frontend. MERN stack microservice project for music str
 - Deployment: Vercel/AWS
 
 ## How to run project
+First clone the repository and navigate to the root directory (musician-app). Insert the environment variables in the .env file.
 
 ```
-# From root directory (abc-musician)
-> cd frontend
+# From root directory (musician-app)
+> cd musician
 > npm install
 > npm run dev
 
@@ -58,4 +59,4 @@ Password: Password#123
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 # Developed by
-- Aaditya B Chatterjee (linkedin: https://www.linkedin.com/in/aaditya-b-chatterjee/)
+- Aaditya B Chatterjee (linkedin: https://www.linkedin.com/in/aaditya-bachchu-chatterjee-0485933b/)
