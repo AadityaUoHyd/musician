@@ -10,32 +10,22 @@ import Admin from "./pages/Admin";
 
 const App = () => {
   const { isAuth, loading } = useUserData();
+  
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/album/:id" element={<Album />} />
-            <Route
-              path="/playlist"
-              element={isAuth ? <PlayList /> : <Login />}
-            />
-            <Route
-              path="/admin/dashboard"
-              element={isAuth ? <Admin /> : <Login />}
-            />
-            <Route path="/login" element={isAuth ? <Home /> : <Login />} />
-            <Route
-              path="/register"
-              element={isAuth ? <Home /> : <Register />}
-            />
-          </Routes>
-        </BrowserRouter>
-      )}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={isAuth ? <Home /> : <Login />} />
+        <Route path="/album/:id" element={isAuth ? <Album /> : <Login />} />
+        <Route path="/playlist" element={isAuth ? <PlayList /> : <Login />} />
+        <Route path="/admin/dashboard" element={isAuth ? <Admin /> : <Login />} />
+        <Route path="/login" element={isAuth ? <Home /> : <Login />} />
+        <Route path="/register" element={isAuth ? <Home /> : <Register />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

@@ -2,9 +2,9 @@
 React with typescript as frontend. MERN stack microservice project for music streaming application (e.g. Spotify).
 
 ## Services
-- user-service - User authentication and management.
-- song-service - Song management.
-- admin-service - Admin panel for managing users, songs, and albums.
+- musician-user-service - User authentication and management.
+- musician-song-service - Song management.
+- musician-admin-service - Admin panel for managing users, songs, and albums.
 - musician - Frontend in React with TypeScript and Tailwind CSS.
 
 ## Technologies used:
@@ -24,19 +24,19 @@ First clone the repository and navigate to the root directory (musician-app). In
 > npm run dev
 
 # From root directory (abc-musician)
-> cd admin-service
+> cd musician-admin-service
 > npm install
 > npm run build
 > npm start
 
 # From root directory (abc-musician)
-> cd song-service
+> cd musician-song-service
 > npm install
 > npm run build
 > npm start
 
 # From root directory (abc-musician)
-> cd user-service
+> cd musician-user-service
 > npm install
 > npm run build
 > npm start

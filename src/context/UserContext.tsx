@@ -101,18 +101,29 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   }
 
   async function fetchUser() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+    
     try {
       const { data } = await axios.get(`${server}/api/v1/user/me`, {
         headers: {
-          token: localStorage.getItem("token"),
+          token: token,
         },
       });
 
       setUser(data);
       setIsAuth(true);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      // If token is invalid or expired, clear it
+      if (error.response?.status === 403) {
+        localStorage.removeItem("token");
+        setUser(null);
+        setIsAuth(false);
+      }
+    } finally {
       setLoading(false);
     }
   }
