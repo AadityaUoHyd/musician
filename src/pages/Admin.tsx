@@ -17,6 +17,9 @@ const Admin = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [album, setAlbum] = useState<string>("");
+  const [artist, setArtist] = useState<string>("");
+  const [genre, setGenre] = useState<string>("");
+  const [duration, setDuration] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
 
@@ -70,6 +73,9 @@ const Admin = () => {
     formData.append("description", description);
     formData.append("file", file);
     formData.append("album", album);
+    formData.append("artist", artist);
+    formData.append("genre", genre);
+    formData.append("duration", duration);
 
     setBtnLoading(true);
 
@@ -85,6 +91,9 @@ const Admin = () => {
       setBtnLoading(false);
       setTitle("");
       setDescription("");
+      setArtist("");
+      setGenre("");
+      setDuration("");
       setFile(null);
       setAlbum("");
     } catch (error: any) {
@@ -215,7 +224,7 @@ const Admin = () => {
         </button>
       </form>
 
-      <h2 className="text-2xl font-bold mb-6 mt-6">Add AddSong</h2>
+      <h2 className="text-2xl font-bold mb-6 mt-6">Add Song</h2>
       <form
         className="bg-[#181818] p-6 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4"
         onSubmit={addSongHandler}
@@ -230,10 +239,34 @@ const Admin = () => {
         />
         <input
           type="text"
-          placeholder="Descripiton"
+          placeholder="Description"
           className="auth-input"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Artist"
+          className="auth-input"
+          value={artist}
+          onChange={(e) => setArtist(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Genre"
+          className="auth-input"
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Duration (e.g., 3:45)"
+          className="auth-input"
+          value={duration}
+          onChange={(e) => setDuration(e.target.value)}
           required
         />
         <select
