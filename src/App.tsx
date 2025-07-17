@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Album from "./pages/Album";
 import PlayList from "./pages/PlayList";
 import Admin from "./pages/Admin";
+import SongDetail from "./pages/SongDetail";
 
 const App = () => {
   const { isAuth, loading } = useUserData();
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/admin/dashboard" element={isAuth ? <Admin /> : <Login />} />
         <Route path="/login" element={isAuth ? <Home /> : <Login />} />
         <Route path="/register" element={isAuth ? <Home /> : <Register />} />
+        <Route path="/songs/:id" element={isAuth ? <SongDetail /> : <Login />} />
       </Routes>
     </BrowserRouter>
   );
